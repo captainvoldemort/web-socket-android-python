@@ -1,5 +1,7 @@
 # Android Video Streaming App
 
+[Click here to view the Web Sockets Basics document](https://github.com/yashreadytobox/web-socket-android-python/blob/main/Web-Sockets-Basics.md)
+
 ## Overview
 
 This project is an Android application that displays a live video feed from a WebSocket server using a WebView component. The WebSocket server is implemented in Python and sends video frames to the Android app in real-time. The JavaScript code inside the app handles the WebSocket connection and rendering of video frames onto an HTML canvas element.
