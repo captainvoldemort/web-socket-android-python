@@ -34,6 +34,8 @@ Before running this project, you should have the following:
 
 - Make sure the WebSocket server address (e.g., "ws://127.0.0.1:9997/") in the JavaScript code matches the address of your WebSocket server.
 
+- Change the camera = True/False to toogle between camera feed and video.mp4
+
 ## Additional Notes
 
 - This project demonstrates a simple way to display a live video feed from a WebSocket server in an Android app. You can customize the app's interface and features as needed.
@@ -41,3 +43,5 @@ Before running this project, you should have the following:
 - Ensure that both the Android app and the Python WebSocket server are running and connected to the same network to enable communication between them.
 
 - Make sure to handle exceptions and errors gracefully in your code to ensure the reliability of the WebSocket connection.
+
+- Use 'pip3 install websocket' on the device running the python websockets server. 
