@@ -22,7 +22,7 @@ Before running this project, you should have the following:
 
 3. Set up your Android emulator or connect a physical Android device for testing.
 
-## Running the Android App
+## Running the Android App - Use MainActivity.Java, Index.html and Script.js 
 
 1. Build and run the Android app in Android Studio.
 
