@@ -25,8 +25,8 @@ This project demonstrates a real-time video streaming application using Python (
 1. **Clone the Repository:**
 
    ```shell
-   git clone https://github.com/yourusername/python-websocket-live-streaming.git
-   cd python-websocket-live-streaming
+   git clone https://github.com/yashreadytobox/web-socket-android-python.git
+   cd web-socket-android-python 
    ```
 
 2. **Install Dependencies:**
