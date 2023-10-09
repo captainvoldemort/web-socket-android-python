@@ -20,12 +20,49 @@ This project demonstrates a real-time video streaming application using Python (
 - OpenCV (cv2) for Python
 - WebSockets library for Python (e.g., `websockets`)
 - A modern web browser
+- Android Studios/Emulator/Device
 
 ## Usage
 
 1. **Clone the Repository:**
 
    ```shell
-   git clone https://github.com/yourusername/python-websocket-live-streaming.git
+   git clone https://github.com/yashreadytobox/web-socket-android-python 
    cd python-websocket-live-streaming
    ```
+2. **Install Dependencies:**
+    
+    Install Python dependencies using pip:
+    
+    ```
+    shellCopy code
+    pip install websockets opencv-python
+    
+    ```
+    
+3. **Start the Server:**
+    
+    Run the Python server script:
+    
+    ```
+    shellCopy code
+    python server.py
+    
+    ```
+    
+4. **Open the Web Client:**
+    
+    Open **`index.html`** in a web browser.
+    
+5. **Start Video Streaming:**
+    - The video stream will start automatically when the web page loads.
+    - You can send numeric data to the server using the input field and "Send Numeric Data" button.
+   
+6. **Stop the Server:**
+    
+    To stop the server, press **`Ctrl+C`** in the terminal where the server script is running.
+
+## **Configuration**
+
+- You can configure the video source (camera or video file) in the **`server.py`** script.
+- Change the IP address and port in both the server and client scripts to match your desired setup.
