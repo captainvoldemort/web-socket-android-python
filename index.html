@@ -5,13 +5,16 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <script type="text/javascript" src="script.js" ></script>
     </head>
-    <body onload="openSocket()">
+    <body onload="openVideoSocket(); openNumericSocket();">
         <div id="status">
             Connection failed. Somebody may be using the socket.
         </div>
         <div style="text-align: center">
-            <canvas id="msg" width="960" height="720" style="display:inline-block" />
+            <canvas id="msg" width="960" height="720" style="display:inline-block"></canvas>
         </div>
-        
+        <div>
+            <input type="number" id="numericData" placeholder="Enter numeric data">
+            <button onclick="sendNumericData()">Send Numeric Data</button>
+        </div>
     </body>
 </html>
