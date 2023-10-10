@@ -32,17 +32,17 @@ async def flag_stream(websocket):
 
     while True:
         try:
-            # Generate a random flag (0 or 1).
-            flag = random.randint(0, 1)
+            # Generate a random 4-bit flag value (e.g., "0101").
+            flags = ''.join(random.choice('01') for _ in range(4))
 
-            # Send the flag to the WebSocket client.
-            await websocket.send(str(flag))
+            # Send the 4-bit flag value to the WebSocket client.
+            await websocket.send(flags)
 
             # Sleep for a while before sending the next flag.
             await asyncio.sleep(1)  # Adjust the sleep duration as needed.
         except websockets.exceptions.ConnectionClosed:
             print("Flag stream connection closed")
-            break
+            break 
 
 # Define an asynchronous function named 'numeric_data_handler' that takes a WebSocket connection as an argument.
 async def numeric_data_handler(websocket):
