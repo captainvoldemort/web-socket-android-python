@@ -1,7 +1,12 @@
 let videoSocket; // WebSocket connection for video
 let numericSocket; // WebSocket connection for numeric data
 let flagSocket; // WebSocket connection for flags
-let flagCount = 0; // Initialize the flag count to 0
+let flagCounts = {
+    flag1: 0,
+    flag2: 0,
+    flag3: 0,
+    flag4: 0
+}; 
 
 // Define a function to open a WebSocket connection for video.
 openVideoSocket = () => {
@@ -49,13 +54,24 @@ openFlagSocket = () => {
 
     // Add an event listener for when a message is received from the flag WebSocket server.
     flagSocket.addEventListener('message', (e) => {
-        // Update the flag count with the received flag (0 or 1).
-        flagCount += parseInt(e.data);
-        
-        // Update the HTML element with id "flagCount" to display the updated flag count.
-        document.getElementById("flagCount").innerHTML = "Flag Count: " + flagCount;
-    });
+        // Get the 4-bit flag value from the message.
+        let flags = e.data;
+    
+        // Update the specific flag counts with the received flag value.
+        for (let i = 0; i < flags.length; i++) {
+            let flagChannel = `flag${i + 1}`;
+            flagCounts[flagChannel] += parseInt(flags[i]);
+        }
+    
+        // Update the flag count elements in the HTML.
+        for (let i = 1; i <= 4; i++) {
+            let flagChannel = `flag${i}`;
+            let flagCountElement = document.getElementById(`flagCount${i}`);
+            flagCountElement.textContent = `${flagChannel}: ${flagCounts[flagChannel]}`;
+        }
+    }); 
 }
+
 
 // Define a function to open a WebSocket connection for numeric data.
 openNumericSocket = () => {
