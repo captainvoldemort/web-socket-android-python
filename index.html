@@ -2,15 +2,17 @@
 <html>
     <head>
         <title>Python_Websocket_Live_Streaming</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
         <script type="text/javascript" src="script.js" ></script>
     </head>
-    <body onload="openVideoSocket(); openNumericSocket();">
+    <body onload="openVideoSocket(); openNumericSocket(); openFlagSocket();">
         <div id="status">
             Connection failed. Somebody may be using the socket.
         </div>
         <div style="text-align: center">
             <canvas id="msg" width="960" height="720" style="display:inline-block"></canvas>
+        </div>
+        <div>
+            <span id="flagCount">Flag Count: 0</span>
         </div>
         <div>
             <input type="number" id="numericData" placeholder="Enter numeric data">
