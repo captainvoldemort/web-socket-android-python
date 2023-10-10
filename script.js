@@ -1,5 +1,7 @@
 let videoSocket; // WebSocket connection for video
 let numericSocket; // WebSocket connection for numeric data
+let flagSocket; // WebSocket connection for flags
+let flagCount = 0; // Initialize the flag count to 0
 
 // Define a function to open a WebSocket connection for video.
 openVideoSocket = () => {
@@ -34,6 +36,27 @@ openVideoSocket = () => {
     });
 }
 
+// Define a function to open a WebSocket connection for flags.
+openFlagSocket = () => {
+    // Create a new WebSocket connection to the server for flags at "ws://127.0.0.1:9997/flags".
+    flagSocket = new WebSocket("ws://127.0.0.1:9997/flags");
+    
+    // Add an event listener for when the WebSocket connection for flags is opened.
+    flagSocket.addEventListener('open', (e) => {
+        // Update the HTML element with id "status" to indicate that the flag connection is opened.
+        document.getElementById("status").innerHTML = "Flag Connection Opened";
+    });
+
+    // Add an event listener for when a message is received from the flag WebSocket server.
+    flagSocket.addEventListener('message', (e) => {
+        // Update the flag count with the received flag (0 or 1).
+        flagCount += parseInt(e.data);
+        
+        // Update the HTML element with id "flagCount" to display the updated flag count.
+        document.getElementById("flagCount").innerHTML = "Flag Count: " + flagCount;
+    });
+}
+
 // Define a function to open a WebSocket connection for numeric data.
 openNumericSocket = () => {
     // Create a new WebSocket connection to the server for numeric data at "ws://127.0.0.1:9997/numeric".
@@ -60,7 +83,7 @@ sendNumericData = () => {
 
 // Call the functions to open WebSocket connections when the page loads.
 window.onload = () => {
-    openVideoSocket();
+    openFlagSocket(); 
+    openVideoSocket(); 
     openNumericSocket();
 }
-
