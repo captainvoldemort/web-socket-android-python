@@ -1,6 +1,7 @@
 import asyncio
 import websockets
 import cv2
+import random  # Import the random module to generate random flags
 
 # Define an asynchronous function named 'video_stream' that takes a WebSocket connection as an argument.
 async def video_stream(websocket):
@@ -25,6 +26,23 @@ async def video_stream(websocket):
     except Exception as e:
         print(e)  # If an exception occurs (e.g., video source is closed), print the error message.
         pass
+# Define an asynchronous function named 'flag_stream' that takes a WebSocket connection as an argument.
+async def flag_stream(websocket):
+    print('Starting flag stream...')  # Print a message indicating the flag stream is starting.
+
+    while True:
+        try:
+            # Generate a random flag (0 or 1).
+            flag = random.randint(0, 1)
+
+            # Send the flag to the WebSocket client.
+            await websocket.send(str(flag))
+
+            # Sleep for a while before sending the next flag.
+            await asyncio.sleep(1)  # Adjust the sleep duration as needed.
+        except websockets.exceptions.ConnectionClosed:
+            print("Flag stream connection closed")
+            break
 
 # Define an asynchronous function named 'numeric_data_handler' that takes a WebSocket connection as an argument.
 async def numeric_data_handler(websocket):
@@ -44,6 +62,8 @@ async def numeric_data_handler(websocket):
 async def main(websocket, path):
     if path == "/video":
         await video_stream(websocket)
+    if path == "/flags":
+        await flag_stream(websocket)
     elif path == "/numeric":
         await numeric_data_handler(websocket)
 
