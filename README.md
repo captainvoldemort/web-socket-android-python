@@ -33,8 +33,7 @@ This project demonstrates a real-time video streaming application using Python (
     
     Install Python dependencies using pip:
     
-    ```
-    shellCopy code
+    ```shell
     pip install websockets opencv-python
     
     ```
@@ -43,8 +42,7 @@ This project demonstrates a real-time video streaming application using Python (
     
     Run the Python server script:
     
-    ```
-    shellCopy code
+    ```shell
     python server.py
     
     ```
