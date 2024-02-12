@@ -1,28 +1,22 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Python_Websocket_Live_Streaming</title>
-        <script type="text/javascript" src="script.js" ></script>
-    </head>
-    <body onload="openVideoSocket(); openNumericSocket(); openFlagSocket();">
-        <div id="status">
-            Connection failed. Somebody may be using the socket.
+<head>
+    <script type="text/javascript" src="script.js" ></script>
+    <title>Python_Websocket_Live_Streaming</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body onload="openVideoSocket(); openNumericSocket(); openFlagSocket();">
+    <div class="sidebar">
+        <div class="logo-container">
+            <img src="logo.jpg" alt="Logo" class="logo">
         </div>
-        <div style="text-align: center">
-            <canvas id="msg" width="960" height="720" style="display:inline-block"></canvas>
-        </div>
-        <div>
-            <!-- Display flag counts for flag1, flag2, flag3, and flag4 -->
-            <div id="flagCounts">
-                <div id="flagCount1">flag1: 0</div>
-                <div id="flagCount2">flag2: 0</div>
-                <div id="flagCount3">flag3: 0</div>
-                <div id="flagCount4">flag4: 0</div>
-            </div>
-        </div>
-        <div>
-            <input type="number" id="numericData" placeholder="Enter numeric data">
-            <button onclick="sendNumericData()">Send Numeric Data</button>
-        </div>
-    </body>
+        <a href="video.html">Video</a>
+        <a href="flag.html">Flag Values</a>
+        <a href="numeric.html">Send Numeric Data</a>
+    </div>
+
+    <div class="content">
+        <!-- Content will be loaded dynamically here -->
+    </div>
+</body>
 </html>
